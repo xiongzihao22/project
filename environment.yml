@@ -1,0 +1,15 @@
+# Reference Linux/WSL CUDA environment. Run the separate pip command in README.
+name: cloud-removal-release
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch=2.2.2
+  - torchvision=0.17.2
+  - pytorch-cuda=12.1
+  - mkl=2023.1.0
+  - numpy=1.26.4
+  - pillow

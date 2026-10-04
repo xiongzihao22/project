@@ -1,0 +1,15 @@
+{
+  "status": "experimental_sampling_not_reported_by_thesis",
+  "solver": "heun",
+  "sigma_minimum": 0.02,
+  "sigma_maximum": 20.0,
+  "rho": 7.0,
+  "candidate_steps": [18, 32, 40],
+  "stochastic_churn": 0.0,
+  "seed": 13,
+  "batch_size": 4,
+  "num_workers": 4,
+  "pilot_samples": 8,
+  "preview_samples": 2,
+  "weights": ["online", "ema"]
+}

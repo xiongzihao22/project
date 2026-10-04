@@ -1,0 +1,10 @@
+{
+  "c_in": 3,
+  "unet_cond_dim": 3,
+  "feats_in": 256,
+  "depths": [2, 2, 2, 2],
+  "channels": [128, 256, 384, 512],
+  "self_attn_depths": [false, false, false, false],
+  "patch_size": 2,
+  "dropout_rate": 0.0
+}

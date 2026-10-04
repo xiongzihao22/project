@@ -1,0 +1,39 @@
+{
+  "status": "experimental_student_distillation_not_reported_by_thesis",
+  "seed": 13,
+  "model_config": "configs/hdit_candidate.json",
+  "teacher_epoch": 800,
+  "teacher_weights": "ema",
+  "student_initialization": "teacher_backbone",
+  "student_input_scaling": "edm",
+  "trajectory_solver": "euler",
+  "image_size": 512,
+  "batch_size": 4,
+  "num_workers": 4,
+  "drop_last": false,
+  "augmentation": "none",
+  "precision": "bfloat16",
+  "gradient_checkpointing": true,
+  "sigma": {
+    "minimum": 0.02,
+    "maximum": 20.0,
+    "data": 0.5,
+    "rho": 7.0,
+    "grid_levels": 18
+  },
+  "loss_reduction": "pixel_mean",
+  "ema_decay": 0.999,
+  "optimizer": {
+    "type": "AdamW",
+    "learning_rate": 1e-05,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0
+  },
+  "learning_rate_schedule": "constant",
+  "gradient_clip_norm": 0.01,
+  "maximum_epochs": 20,
+  "log_interval_steps": 20
+}

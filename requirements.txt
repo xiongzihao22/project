@@ -1,0 +1,5 @@
+--find-links https://whl.natten.org/old
+natten==0.17.3+torch220cu121
+lpips==0.1.4
+einops==0.8.2
+-e ./third_party/k-diffusion-4601bf085320592473f681a62808ed873d17fad5

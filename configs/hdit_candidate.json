@@ -1,0 +1,10 @@
+{
+  "patch_size": [2, 2],
+  "levels": [
+    {"depth": 2, "width": 128, "d_ff": 384, "dropout": 0.0, "attention": {"type": "neighborhood", "d_head": 64, "kernel_size": 7}},
+    {"depth": 2, "width": 256, "d_ff": 768, "dropout": 0.0, "attention": {"type": "neighborhood", "d_head": 64, "kernel_size": 7}},
+    {"depth": 2, "width": 512, "d_ff": 1536, "dropout": 0.0, "attention": {"type": "global", "d_head": 64}},
+    {"depth": 2, "width": 768, "d_ff": 2304, "dropout": 0.0, "attention": {"type": "global", "d_head": 64}}
+  ],
+  "mapping": {"depth": 2, "width": 256, "d_ff": 768, "dropout": 0.0}
+}

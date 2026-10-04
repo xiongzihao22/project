@@ -1,0 +1,11 @@
+{
+  "dataset": "CUHK-CR",
+  "author_repository": "https://github.com/littlebeen/DDPM-Enhancement-for-Cloud-Removal",
+  "author_download_repository": "https://huggingface.co/littlebeen/DE",
+  "archive": "C-CUHK.rar",
+  "expected_bytes": 1458346878,
+  "expected_sha256": "a11973446c457b371243bca33d437d95619efc2aaf7c4ee7896420b6092926c0",
+  "checksum_source": "https://huggingface.co/api/models/littlebeen/DE/tree/main?recursive=true",
+  "doi": "10.1109/TGRS.2024.3411671",
+  "note": "Source metadata only; presence of this file does not mean download is complete. Verify archive before extraction."
+}

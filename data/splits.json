@@ -1,0 +1,18 @@
+{
+  "CUHK-CR1_train": {
+    "count": 534,
+    "published_manifest_sha256": "fb60fbbddf8cc85cbbafaf85bf68d7f194b8bf5765c54d240594f764f807e3a8"
+  },
+  "CUHK-CR1_test": {
+    "count": 134,
+    "published_manifest_sha256": "fe7b0ba28513a6a742e9d9ea3dc8a51c97e14ac0154f4f8cdf3df6bbd3949d28"
+  },
+  "CUHK-CR2_train": {
+    "count": 448,
+    "published_manifest_sha256": "47e7f2816e7d2fed5cd5bc449ea3f8273dfed3f7c1cb75b8a293e8a2ed3482f9"
+  },
+  "CUHK-CR2_test": {
+    "count": 111,
+    "published_manifest_sha256": "e62ba084a0ab638c2032e1015189ad02e0542a15449e77e5879a0561ad39b869"
+  }
+}

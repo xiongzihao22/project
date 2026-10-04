@@ -1,0 +1,27 @@
+{
+  "training_mode": "separate_models_per_subset",
+  "image_size": 512,
+  "channels": 3,
+  "model_range": [-1, 1],
+  "transform": "cloud_removal.data.paired_model_transform",
+  "augmentation": "none",
+  "validation_holdout": false,
+  "retain_original_duplicates": true,
+  "noise_target": "clean",
+  "clip_noisy_input": false,
+  "student_concat_order": ["noisy", "cloudy"],
+  "subsets": {
+    "CUHK-CR1": {
+      "train_manifest": "data/manifests/CUHK-CR1_train.json",
+      "test_manifest": "data/manifests/CUHK-CR1_test.json",
+      "train_count": 534,
+      "test_count": 134
+    },
+    "CUHK-CR2": {
+      "train_manifest": "data/manifests/CUHK-CR2_train.json",
+      "test_manifest": "data/manifests/CUHK-CR2_test.json",
+      "train_count": 448,
+      "test_count": 111
+    }
+  }
+}
