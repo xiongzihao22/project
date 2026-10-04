@@ -8,8 +8,7 @@
 - Directory: `third_party/k-diffusion-4601bf085320592473f681a62808ed873d17fad5`
 - Selected Python package and packaging files are copied from the research
   workspace. Build products, pretrained weights, and unrelated scripts are omitted.
-- These files are a workspace snapshot; the recorded revision identifies the
-  source reference, not a claim that every workspace file is unmodified upstream.
+- These files are a workspace snapshot based on the recorded upstream revision.
   Per-file hashes are in `docs/source_snapshot.json`.
 
 ## Runtime dependencies

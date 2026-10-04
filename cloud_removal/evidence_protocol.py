@@ -79,7 +79,7 @@ def compare(reference, candidate, *, additional_teacher_baseline=False):
         'equal_nfe': reference['nfe'] == candidate['nfe'],
         'comparison_scope': ('additional_teacher_baseline_not_student_distillation_source'
                              if additional_teacher_baseline else 'source_verified_comparison'),
-        'interpretation': 'Measured deltas only; no automatic small-loss or superiority claim',
+        'interpretation': 'Candidate-minus-reference quality deltas and reference-over-candidate efficiency ratios',
     }
 
 

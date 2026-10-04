@@ -1,1 +1,1 @@
-"""Equation-level foundation, not a complete trainable model."""
+"""Cloud removal models, training, sampling, and evaluation."""

@@ -23,7 +23,7 @@
     },
     {
       "path": "cloud_removal/evidence_protocol.py",
-      "sha256": "0174e790f709f83476c813bf18c6d2b0afe91a6f31f4b1d88e22d9c304b82e0a"
+      "sha256": "8f9dffde3e85ba64986ca4788af8435dd322cb130523da12c47a7f8395085d01"
     },
     {
       "path": "cloud_removal/hdit_adapter.py",
@@ -115,7 +115,7 @@
     },
     {
       "path": "cloud_removal/__init__.py",
-      "sha256": "9e50590e2ff8aa3036276a3a44eaabb1ce9815d2a582c5b2a7eadb0aa77319b8"
+      "sha256": "84ca4adc34fe02c12b58ffacb597e6c6a3e2acad90f275c40081dabf0c45c24e"
     },
     {
       "path": "configs/dataset_source.json",
@@ -191,7 +191,7 @@
     },
     {
       "path": "tests/test_hdit_factory.py",
-      "sha256": "7dd2e6ee4c1ebe80b345ebda0ba4098b084961a6d1afe96bc900df704f9bc646"
+      "sha256": "b36e63a554be063311d9c61bb8a442db5e8ab50e4afbfc284a96d3b37f8b5629"
     },
     {
       "path": "tests/test_student_ema.py",
@@ -199,7 +199,7 @@
     },
     {
       "path": "tests/test_student_trajectory.py",
-      "sha256": "4698eeffd6b236d123833fbd1a0feb0f2f276432473d9abd900bf4d545e40b37"
+      "sha256": "6c78ac0295fb2d8e3b5885debc2cc6192d0826303d5da2b2e5037c247d86ae33"
     },
     {
       "path": "tests/test_teacher_cosine.py",
@@ -239,7 +239,7 @@
     },
     {
       "path": "tests/test_training.py",
-      "sha256": "4acc72ca522499bd6afde5bb29688a908c33a63acb323ed1b384ed01157eb6cd"
+      "sha256": "e7b9a4f28583d89c8f366350dc6225fa75f04d4a62f9b573564de6a256c16da7"
     },
     {
       "path": "data/checksums/CUHK-CR1_test.json",

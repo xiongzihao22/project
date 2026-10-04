@@ -1,4 +1,4 @@
-"""Small synthetic checks; these do not establish thesis solver settings."""
+"""Synthetic checks for adjacent-state student trajectories."""
 import unittest
 
 import torch

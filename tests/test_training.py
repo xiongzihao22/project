@@ -1,4 +1,4 @@
-"""CPU unit tests with synthetic tensors, NOT an HDiT experiment."""
+"""CPU training unit tests with synthetic tensors."""
 import unittest
 
 import torch
@@ -18,7 +18,7 @@ class TestBackbone(nn.Module):
 
 
 def test_trajectory(teacher, noisy, high, low, cloudy):
-    # Test fixture only: no claim that this is the thesis's chosen ODE solver.
+    # Synthetic ODE solver fixture.
     return noisy + ((low - high) / high)[:, None, None, None] * (
         noisy - teacher(noisy, high, cloudy))
 
@@ -83,7 +83,7 @@ class TrainingTests(unittest.TestCase):
     def test_student_and_ema_update_but_teacher_frozen(self):
         before = {k: p.detach().clone() for k, p in self.student.named_parameters()}
         teacher_before = {k: p.detach().clone() for k, p in self.teacher.named_parameters()}
-        # Optimizer and decay below are test values, not experiment defaults.
+        # Test-specific optimizer and EMA settings.
         optimizer = torch.optim.SGD(self.student.parameters(), lr=0.01)
         value = student_step(self.student, self.target, self.teacher, optimizer,
                              self.batch, trajectory_step=test_trajectory,

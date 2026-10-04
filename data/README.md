@@ -23,9 +23,8 @@ and order but uses paths relative to each manifest. Counts are CR1 534 train /
 file bytes. `python -m scripts.verify_data --subset CUHK-CR1` checks all pairs,
 image size/mode, and those pixel hashes. It never modifies images.
 
-Portable manifest bytes differ from historical absolute-path manifests; their
-SHA256 values must not be represented as the historical manifest hashes. Strict
-evaluation of an archived Direct checkpoint will intentionally reject a changed
-training-manifest hash. Do not bypass that check or edit the archived checkpoint.
-New training against these portable manifests records the new hashes. Cloudy-only
-prediction through an exported inference package does not require manifests.
+Portable manifests use relative paths and have their own SHA256 identifiers.
+Direct checkpoint evaluation requires an exact match to the training-manifest
+hash stored in the checkpoint. For archived checkpoints, use the corresponding
+original manifests; new training records the portable manifest hashes.
+Cloudy-only prediction uses an exported inference package without manifests.

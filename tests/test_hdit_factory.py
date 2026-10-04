@@ -7,7 +7,7 @@ from cloud_removal.hdit_factory import build_hdit, validate_spec
 
 class FactoryTests(unittest.TestCase):
     def setUp(self):
-        # Interface fixture only, not a proposed experiment architecture.
+        # Minimal interface fixture.
         self.spec = {'patch_size': [2, 2],
                      'mapping': {'depth': 1, 'width': 32, 'd_ff': 96, 'dropout': 0.},
                      'levels': [{'depth': 1, 'width': 32, 'd_ff': 96, 'dropout': 0.,

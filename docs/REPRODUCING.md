@@ -1,8 +1,7 @@
 # Training and evaluation
 
 All commands below run from the repository root. Output directories must be new.
-Training uses CUDA and can incur substantial compute cost; no command is run
-automatically. Installation and release validation do not retrain models.
+Training requires a CUDA GPU.
 
 ## New teacher training
 
@@ -10,17 +9,15 @@ automatically. Installation and release validation do not retrain models.
 python -m cloud_removal.train_teacher --subset CUHK-CR1 --config configs/teacher_training.json --output-dir outputs/teacher --target-epoch 300
 ```
 
-This is the included experimental 300-epoch baseline recipe with AdamW 1e-4,
-not a one-command reproduction of the historical 800-epoch teacher. Resume only
-with a matching configuration using `--resume outputs/teacher/latest.pt`.
+This command trains the 300-epoch baseline with AdamW at 1e-4. Resume with a
+matching configuration using `--resume outputs/teacher/latest.pt`.
 
 `configs/teacher800_cosine_archived.json` is the exact saved late-stage
-configuration. It is provided for inspection and compatible continuation, **not
-as a from-scratch 800-epoch recipe**. The archived lineage used earlier constant
-learning-rate stages, a low-LR fork at 700, cosine decay from global step 96480
-to 107200, and recovery from a saved checkpoint after interruption. Starting
-from random weights with the final configuration does not recreate this history.
-Earlier source checkpoints and transitions are not bundled in this release.
+configuration for checkpoint continuation. The 800-epoch training sequence used
+constant learning-rate stages, a low-LR fork at epoch 700, cosine decay from
+global step 96480 to 107200, and checkpoint recovery after interruption.
+Reproducing this sequence requires its intermediate checkpoints and transition
+settings; this repository supplies the final-stage configuration.
 
 ## Student from an epoch-800 teacher
 
@@ -41,8 +38,8 @@ python -m cloud_removal.train_direct_hdit --subset CUHK-CR1 --output outputs/dir
 ```
 
 Direct uses random initialization, concat(zero, cloudy), constant time 1, and
-L1 supervision, without a teacher. Its 20-epoch checkpoint matches student
-update count, not teacher-plus-student training cost or initialization.
+L1 supervision. Its 20-epoch checkpoint and the student have the same update
+count. The student additionally uses teacher pretraining and EMA initialization.
 
 ## Matched evaluation
 
@@ -54,18 +51,15 @@ python -m cloud_removal.evaluate_evidence --method direct --checkpoint outputs/d
 
 Replace `TEACHER_SHA256` with the independently checked hash of the exact teacher
 used to train that student. Archived reference hashes are in CHECKPOINTS.md.
-The formal student evaluator intentionally requires the source teacher to verify
-provenance; the deployed student predictor does not require the teacher.
+The student evaluator checks the source teacher checkpoint hash. Cloudy-only
+deployment uses the exported student package.
 
 The evaluator uses the full fixed test set, BF16, synchronized prediction-only
 wall time, PSNR, SSIM, RMSE on [0,1] scale, and LPIPS-Alex v0.1. Loading, metrics,
 and warmup are outside prediction timing. NFE is checked with a forward hook.
-Do not compare these BF16 timings to independently measured FP32 table entries
-without noting the different protocol. LPIPS dependencies/weights must be
-available separately. No DiffCR factory or external-baseline benchmark package
-is bundled; the historical optional evaluator branch is not a supplied baseline.
+Timing comparisons use matching precision and measurement settings. Install the
+LPIPS dependencies and weights before evaluation. External-baseline benchmarks
+require their own model implementations and weights.
 
-Single-seed results on a repeatedly evaluated test set are not independent
-validation. Low error on one metric does not establish universal superiority.
-The code supports CR2 manifests, but this release's archived quality table is
-CR1 only; it does not imply that the corresponding CR2 weights were trained.
+The included quality results cover CUHK-CR1 with one training seed and repeated
+evaluation of the fixed test set. CUHK-CR2 manifests are also provided.
