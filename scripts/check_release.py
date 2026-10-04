@@ -10,7 +10,7 @@ def main():
     root = Path(__file__).resolve().parents[1]
     tracked = subprocess.check_output(['git', 'ls-files', '-z'], cwd=root).decode().split('\0')
     forbidden = {'.idea', '.plot_dependencies', '__pycache__', 'checkpoints',
-                 'outputs', 'runs', 'progress_logs', 'archives'}
+                 'outputs', 'results', 'runs', 'progress_logs', 'archives'}
     suffixes = {'.pt', '.pth', '.pyc', '.whl', '.zip', '.rar', '.pem', '.key'}
     private = re.compile(r'BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY|github_pat_[A-Za-z0-9_]+|gh[pousr]_[A-Za-z0-9]{20,}|connect\.bjb|autodl_cloud_removal|/root/autodl-tmp|[CD]:[/\\]+Users[/\\]+ASUS', re.I)
     paths = [Path(p) for p in tracked if p]

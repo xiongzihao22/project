@@ -13,6 +13,7 @@ data/raw/
 data/archives/
 checkpoints/
 outputs/
+results/
 runs/
 logs/
 *.pt

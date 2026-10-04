@@ -3,8 +3,8 @@
 Research implementation of an optical-conditioned EDM teacher, a single-step
 consistency student, and a parameter-matched Direct HDiT regression control.
 
-Training and evaluation instructions are provided below, with experiment
-results in [results](results/README.md).
+This repository provides the model implementation and tools for training,
+evaluation, and inference in your own environment.
 
 ## Status
 
@@ -13,7 +13,7 @@ results in [results](results/README.md).
 - Data: original CUHK-CR1 (534/134) and CUHK-CR2 (448/111) train/test identifiers;
   images must be obtained separately.
 - Weights: **not included and no public download has been published yet**.
-  See [checkpoint inventory](docs/CHECKPOINTS.md).
+  See [checkpoint usage](docs/CHECKPOINTS.md) for using your trained models.
 - License: the owner has not selected a license for original project code.
   See [licensing status](LICENSE_STATUS.md) and third-party notices.
 - Run commands from this repository root. Linux/WSL with CUDA is the training
@@ -30,7 +30,7 @@ python -m unittest discover -s tests -p 'test_*.py'
 
 PyTorch 2.2.2 / CUDA 12.1 and NATTEN 0.17.3 are the reference stack. The NATTEN
 wheel is Python/platform-specific; the shown environment targets Linux Python
-3.10. See [validation notes](docs/VALIDATION.md) for the tested environment.
+3.10. Select compatible packages for your GPU, CUDA version, and operating system.
 LPIPS may download its AlexNet backbone on first evaluation. Set `TORCH_HOME`
 to a suitable cache location. Never load untrusted PyTorch checkpoints.
 
@@ -74,8 +74,7 @@ configs/        explicit architecture, data and experiment configurations
 scripts/        data verification and inference export
 tests/          CPU synthetic unit tests and release checks
 data/           split manifests and pixel checksums, no images
-docs/           reproduction, checkpoint and validation notes
-results/        selected archived local measurements
+docs/           training, evaluation and checkpoint usage
 third_party/    selected HDiT dependency source with original license
 ```
 

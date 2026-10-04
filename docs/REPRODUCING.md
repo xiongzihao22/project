@@ -12,12 +12,10 @@ python -m cloud_removal.train_teacher --subset CUHK-CR1 --config configs/teacher
 This command trains the 300-epoch baseline with AdamW at 1e-4. Resume with a
 matching configuration using `--resume outputs/teacher/latest.pt`.
 
-`configs/teacher800_cosine_archived.json` is the exact saved late-stage
-configuration for checkpoint continuation. The 800-epoch training sequence used
-constant learning-rate stages, a low-LR fork at epoch 700, cosine decay from
-global step 96480 to 107200, and checkpoint recovery after interruption.
-Reproducing this sequence requires its intermediate checkpoints and transition
-settings; this repository supplies the final-stage configuration.
+`configs/teacher800_cosine_archived.json` provides a late-stage continuation
+configuration with cosine decay from global step 96480 to 107200. Use it with a
+compatible checkpoint. For a new run, start with `teacher_training.json` and
+set the training duration and learning-rate schedule for that run.
 
 ## Student from an epoch-800 teacher
 
@@ -50,7 +48,7 @@ python -m cloud_removal.evaluate_evidence --method direct --checkpoint outputs/d
 ```
 
 Replace `TEACHER_SHA256` with the independently checked hash of the exact teacher
-used to train that student. Archived reference hashes are in CHECKPOINTS.md.
+used to train that student. See [checkpoint usage](CHECKPOINTS.md).
 The student evaluator checks the source teacher checkpoint hash. Cloudy-only
 deployment uses the exported student package.
 
@@ -61,5 +59,5 @@ Timing comparisons use matching precision and measurement settings. Install the
 LPIPS dependencies and weights before evaluation. External-baseline benchmarks
 require their own model implementations and weights.
 
-The included quality results cover CUHK-CR1 with one training seed and repeated
-evaluation of the fixed test set. CUHK-CR2 manifests are also provided.
+Choose `CUHK-CR1` or `CUHK-CR2` to evaluate your checkpoints with the corresponding
+dataset manifests.

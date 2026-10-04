@@ -1,5 +1,5 @@
 {
-  "description": "Hashes of selected source/configuration/data/result files in the release, normalized to LF. Private paths excluded; release utilities and docs have separate Git blob hashes.",
+  "description": "Hashes of selected source, configuration, and data manifest files in the release, normalized to LF. Release utilities and docs have separate Git blob hashes.",
   "files": [
     {
       "path": "cloud_removal/data.py",
@@ -156,10 +156,6 @@
     {
       "path": "data/splits.json",
       "sha256": "835dd042d3553f16218fc5165fa9dba1b9298fa29fa535c87186dbad2c6476de"
-    },
-    {
-      "path": "results/direct_teacher_student_cr1.json",
-      "sha256": "8ad073040b11c2aad720808219b52298e7643f6c3b43261cbdedd62167e78654"
     },
     {
       "path": "tests/test_coefficients.py",
